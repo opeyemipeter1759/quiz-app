@@ -15,7 +15,7 @@ export type Question ={
   type:string;
 }
 
-export type QuestionState = Question & {answers:string[]}
+export type QuestionState = Question & {answers:string[]};
 
 export const fetchQuizQuestions = async (amount:number, difficulty:Difficulty) => {
   const endpoint =`https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
@@ -24,7 +24,7 @@ export const fetchQuizQuestions = async (amount:number, difficulty:Difficulty) =
   return data.results.map((question: Question) =>(
     {
       ...question,
-      answers: shuffleArr([...question.incorrect_answers, question.correct_answer])
+      answers: shuffleArr([...question.incorrect_answers, question.correct_answer]),
     }
   ) );
 }
